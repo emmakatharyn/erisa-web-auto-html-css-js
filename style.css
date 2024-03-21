@@ -1,0 +1,163 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  width: 100vw;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  gap: 2%;
+}
+
+#scriptSelection {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  width: 20%;
+}
+
+#scriptSelection button {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#information {
+  grid-area: rightSide;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  /* White */
+  border-radius: 5px;
+  width: 25%;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #333;
+  margin-top: 30px;
+}
+
+/* Navigation bar styles */
+nav {
+  background-color: #333;
+  /* Dark gray */
+  overflow: hidden;
+  width: 30%;
+}
+
+nav button {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: white;
+}
+
+nav button:hover {
+  background-color: #a1a1a1;
+  /* Darker gray */
+}
+
+/* Section styles */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  /* White */
+  border-radius: 5px;
+}
+
+#sections {
+  width: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+.faint-hover {
+  opacity: 0.5;
+  /* Initial opacity */
+  transition: opacity 0.3s;
+  /* Smooth transition for opacity changes */
+}
+
+.faint-hover:hover {
+  opacity: 1;
+  /* Full opacity on hover */
+}
+
+#updateCredentialsBtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#runScriptBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#fileDropZone {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.dragover {
+  background-color: #f0f0f0;
+}
+
+#shareLoginFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#ibacLoginFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#enrollmentCheckResults {
+  display: flex;
+  margin-top: 20px;
+}

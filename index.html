@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Automation Page</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <h1>ERISA Web Automation</h1>
+
+    <div id="content">
+      <!-- Script Selection -->
+      <nav id="scriptSelection">
+        <button class="navBtn" data-section-id="printShareSection">
+          Print SHARE Employee
+        </button>
+        <button class="navBtn" data-section-id="enrollmentCheckSection">
+          Check Enrollment
+        </button>
+        <button class="navBtn" data-section-id="employeeConfirmationSection">
+          Employee Confirmation
+        </button>
+        <button class="navBtn" data-section-id="shareCredentialsSection">
+          Auto Login
+        </button>
+      </nav>
+
+      <!-- Section for Specifying Pages with Checkboxes -->
+      <div id="sections">
+        <script>
+          function handleCheckboxGroup(allCheckbox, section) {
+            console.log("Handling checkbox group:", section);
+            const pageCheckboxes = Array.from(
+              document.querySelectorAll(`#${section} input[type="checkbox"]`)
+            );
+            console.log("pageCheckboxes:", pageCheckboxes);
+
+            if (allCheckbox.checked) {
+              pageCheckboxes.forEach((checkbox) => (checkbox.checked = true));
+            } else {
+              pageCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+            }
+          }
+        </script>
+
+        <!-- Section for Specifying Employee Ids -->
+        <section id="printShareSection" class="hidden">
+          <div>
+            <h2>Print SHARE Pages</h2>
+            <input type="text" id="empIDInput" placeholder="Enter ID" />
+            <button id="addEmpIDBtn">Add Employee ID</button>
+            <ul id="empIDList"></ul>
+            <button id="clearEmpIDBtn">Clear Employee IDs</button>
+          </div>
+
+          <div id="pageSelection">
+            <h3>Specify Employee SHARE Pages:</h3>
+
+            <label
+              ><input
+                type="checkbox"
+                onchange="handleCheckboxGroup(this, 'summary')"
+              />
+              Summary</label
+            ><br />
+            <div id="summary" style="padding-left: 20px">
+              <label
+                ><input type="checkbox" value="personal-data" />Personal
+                Information</label
+              ><br />
+              <label><input type="checkbox" value="job-data" />Job Data</label
+              ><br />
+            </div>
+
+            <label
+              ><input
+                type="checkbox"
+                onchange="handleCheckboxGroup(this, 'coverage')"
+              />
+              Benefits</label
+            ><br />
+            <div id="coverage" style="padding-left: 20px">
+              <label><input type="checkbox" value="health" />Health</label
+              ><br />
+              <label><input type="checkbox" value="life" />Life</label><br />
+              <label
+                ><input type="checkbox" value="disability" />Disability</label
+              ><br />
+              <label><input type="checkbox" value="fsa" />FSA</label><br />
+            </div>
+            <!-- Add more checkboxes for additional pages -->
+          </div>
+          <p>Don't Click the popup Window.</p>
+          <br />
+          <button id="runScriptBtn">Print</button>
+          <p class="faint-hover">
+            If the window is blank, then close and print again.
+          </p>
+        </section>
+
+        <!-- Section for Specifying Employee Ids -->
+        <section id="enrollmentCheckSection" class="hidden">
+          <div>
+            <h2>Check Enrollment</h2>
+            <div id="fileDropZone"></div>
+          </div>
+          <!-- Filename -->
+          <p>Drag and Drop the file here or click to select</p>
+          <p>File must be in .xml format</p>
+
+          <p id="fileStatus"></p>
+          <button id="checkEnrollmentButton">Check</button>
+          <p class="faint-hover">
+            If the window is blank, then close and print again.
+          </p>
+
+          <div id="enrollmentCheckResults">
+            <code id="enrollmentXMLResults"></code>
+            <code id="enrollmentShareResults"></code>
+          </div>
+        </section>
+
+        <!-- Section for Specifying Employee Ids -->
+        <section id="employeeConfirmationSection" class="hidden">
+          <div>
+            <h2>Employee Confirmation</h2>
+            <input type="text" id="empConfIDInput" placeholder="Enter ID" />
+          </div>
+
+          <button id="employeeConfirmationButton">Check</button>
+
+          <p class="faint-hover">
+            If the window is blank, then close and print again.
+          </p>
+
+          <div id="employeeConfirmationResults">
+            <h3>Results</h3>
+            <label>Medical</label>
+            <ul id="medicalResults"></ul>
+            <label>Dental</label>
+            <ul id="dentalResults"></ul>
+            <label>Vision</label>
+            <ul id="visionResults"></ul>
+          </div>
+        </section>
+
+        <!-- Section for Specifying Pages with Checkboxes -->
+        <section id="shareCredentialsSection" class="hidden">
+          <h2>SHARE Login</h2>
+
+          <p class="faint-hover">
+            Why? The Automated Browser is not allowed access to your saved
+            passwords.
+          </p>
+          <p class="faint-hover">
+            How? Find your saved SHARE or IBAC passwords in your browser,
+            usually in your settings.
+          </p>
+          <p class="faint-hover">
+            What? This will <b>encrypt</b> and save your SHARE Login a
+            /Documents/ERISA folder and allow the Automated Browser to login.
+          </p>
+          <code id="confirmationText"></code>
+
+          <div id="shareLoginFields">
+            <label>
+              UserName <input type="text" id="shareUserNameInput" /></label
+            ><br />
+            <label>
+              Password <input id="sharePasswordInput" type="password" /></label
+            ><br />
+            <button id="updateCredentialsBtn">Update SHARE Login</button>
+          </div>
+
+          <!-- <div id="ibacLoginFields">
+        <label> UserName <input type="text" id="ibacUserNameInput"></label><br>
+        <label> Password <input type="text" id="ibacPasswordInput" type="password"></label><br>
+        <button id="updateCredentialsBtn">Update IBAC Login</button>
+      </div> -->
+
+          <button id="checkEnvBtn">Show Encrypted Login</button>
+        </section>
+
+        <section id="installation">
+          <h2>Welcome</h2>
+          <p>
+            If this is your first time using this tool,
+            <b>pin this to your Taskbar.</b>
+          </p>
+          <p>Enter your Login Information in the <b>Auto Login</b> Section</p>
+        </section>
+      </div>
+
+      <div id="information">
+        <h2>Information</h2>
+        <p>
+          This tool is designed to automate the process of printing SHARE pages,
+          checking enrollment, and confirming employee information.
+        </p>
+      </div>
+
+      <script src="./scripts/printShare.js"></script>
+      <script src="./scripts/employeeConfirmation.js"></script>
+      <script src="./scripts/updateLogin.js"></script>
+      <script src="./scripts/checkEnrollment.js"></script>
+
+      <script>
+        // Add event listeners for page interaction
+        document.addEventListener("DOMContentLoaded", function () {
+          // Get all sections
+          const sectionBtns = document.querySelectorAll(".navBtn");
+
+          const sections = document.querySelectorAll("section");
+
+          // Function to hide all sections
+          function hideAllSections() {
+            sections.forEach(function (section) {
+              section.classList.add("hidden");
+            });
+          }
+
+          // Event listener for sections
+          sectionBtns.forEach(function (sectionBtn) {
+            sectionBtn.addEventListener("click", function (event) {
+              // Hide all sections
+              hideAllSections();
+
+              // Show the clicked section
+              const clickedSectionId = event.target.dataset.sectionId;
+              const clickedSection = document.getElementById(clickedSectionId);
+              clickedSection.classList.remove("hidden");
+            });
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
