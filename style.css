@@ -44,26 +44,66 @@ button {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #e6e6e6;
+  color: #f2f2f2;
+  background-color: #1b8c42;
   /* White */
   border-radius: 5px;
   width: 25%;
 }
 
+#information h2 {
+  color: #f2f2f2;
+}
+
 h1 {
-  color: #003650;
+  color: #0e5a8a;
   text-align: center;
   margin: 20px 0;
 }
 
 h2 {
-  color: #333;
-  margin-top: 30px;
+  /* color: #333; */
+  color: #0e5a8a;
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+
+h3 {
+  margin-bottom: 18px;
+  color: #0e5a8a;
+}
+
+p {
+  margin: 12px 0;
+}
+
+b {
+  color: #0c4c74;
+}
+
+label {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+input {
+  border: none;
+  padding: 8px 6px;
+  border-radius: 2px;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Navigation bar styles */
 nav {
-  background-color: #003650;
+  /* background-color: #003650; */
+  background-color: #0e5a8a;
   /* Dark gray */
   overflow: hidden;
   width: 30%;
@@ -75,13 +115,14 @@ nav button {
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: white;
-  color: #1998d2;
+  color: #0e5a8a;
+  font-weight: 700;
 }
 
 nav button:hover {
-  background-color: #a1a1a1;
+  background-color: #e7e7e7;
   /* Darker gray */
 }
 
@@ -90,8 +131,9 @@ section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
   padding: 20px;
-  background-color: #a4d7f9;
+  background-color: #d3ebfa;
   /* White */
   border-radius: 5px;
 }
@@ -100,52 +142,102 @@ section {
   width: 50%;
 }
 
-.hidden {
-  display: none;
+.container {
+  margin-bottom: 24px;
 }
 
-.faint-hover {
-  opacity: 0.5;
-  /* Initial opacity */
-  transition: opacity 0.3s;
-  /* Smooth transition for opacity changes */
+/* PRINT SHARE EMPLOYEE */
+#printShareSection button {
+  cursor: pointer;
+  padding: 8px 6px;
+  text-transform: uppercase;
 }
 
-.faint-hover:hover {
-  opacity: 1;
-  /* Full opacity on hover */
+#clearEmpIDBtn {
+  margin-top: 6px;
 }
 
 #updateCredentialsBtn {
   margin-top: 10px;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #a0ce0d;
+  background-color: #45bf86;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 #runScriptBtn {
+  width: 96px;
   margin-top: 20px;
   padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: white;
+  border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
 }
 
+#enrollmentCheckSection p {
+  margin-bottom: 0;
+}
+
+.transparent-box {
+  width: 100%;
+}
+
 #fileDropZone {
-  border: 2px dashed #ccc;
+  width: 100%;
+  border: 2px dashed #bdbdbd;
+  /* background-color: #ecf3f76e; */
   border-radius: 5px;
   padding: 20px;
   text-align: center;
   margin: 20px 0;
 }
 
+#fileDropZone p {
+  color: #666;
+}
+
+.disclaimer {
+  color: #6a696b;
+  font-style: italic;
+}
+
+.warning {
+  color: #dd1616;
+  font-weight: 700;
+}
+
 .dragover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0c5;
+}
+
+#checkEnrollmentButton {
+  padding: 12px 10px;
+}
+
+#employeeConfirmationButton,
+#addEmpIDBtn,
+#runScriptBtn {
+  background-color: #cef2e1;
+  margin-top: 6px;
+  padding: 8px 10px;
+  box-shadow: -2px 3px 0px #1282c769;
+  border-radius: 2px;
+}
+
+#employeeConfirmationButton:hover,
+addEmpIDBtn:hover,
+#runScriptBtn:hover {
+  background-color: #d5f5e6;
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: #45bf86;
 }
 
 #shareLoginFields {
@@ -164,4 +256,9 @@ section {
 #enrollmentCheckResults {
   display: flex;
   margin-top: 20px;
+}
+
+#checkEnvBtn {
+  margin-top: 8px;
+  padding: 6px 8px;
 }
